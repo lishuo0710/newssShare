@@ -1,5 +1,8 @@
 package net.lsshare.controller;
 
+import net.lsshare.Events.EventModel;
+import net.lsshare.Events.EventProducer;
+import net.lsshare.Events.EventType;
 import net.lsshare.dto.ViewObject;
 import net.lsshare.model.EntityType;
 import net.lsshare.model.HostHolder;
@@ -41,6 +44,8 @@ public class LoginController {
     private NewsService newsService;
     @Autowired
     private LikeService likeService;
+    @Autowired
+    private EventProducer eventProducer;
 
     @RequestMapping(path = {"/reg/"}, method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
@@ -82,9 +87,9 @@ public class LoginController {
                     cookie.setMaxAge(3600*24*5);
                 }
                 response.addCookie(cookie);
-              /*  eventProducer.fireEvent(new
+                eventProducer.fireEvents(new
                         EventModel(EventType.LOGIN).setActorId((int) map.get("userId"))
-                        .setExt("username", "牛客").setExt("to", "zjuyxy@qq.com"));*/
+                        .setExt("username", "testMan").setExt("to", "ltby610@163.com"));
                 return MD5Util.getJSONString(0, "成功");
             } else {
                 return MD5Util.getJSONString(1, map);

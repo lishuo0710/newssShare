@@ -32,9 +32,12 @@ public class LikeController {
      * @param newsId
      * @return
      */
+    @RequestMapping("/like")
+    @ResponseBody
     public String like(@Param("newId") int newsId){
-
-        return "";
+        long likecount = likeService.like(hostHolder.getUser().getId(),EntityType.ENTITY_NEWS,newsId);
+        newsService.updateLikeCount(newsId, (int) likecount);
+        return MD5Util.getJSONString(0, String.valueOf(likecount));
     }
     @RequestMapping(path = {"/dislike"}, method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody

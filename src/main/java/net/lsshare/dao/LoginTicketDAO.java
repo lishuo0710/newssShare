@@ -1,4 +1,4 @@
-package net.lsshare;
+package net.lsshare.dao;
 
 import net.lsshare.model.LoginTicket;
 import org.apache.ibatis.annotations.*;

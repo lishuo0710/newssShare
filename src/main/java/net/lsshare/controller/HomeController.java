@@ -50,7 +50,7 @@ public class HomeController {
         model.addAttribute("pop", pop);
         return "home";
     }
-    @RequestMapping(path = {"/reg/"}, method = {RequestMethod.GET, RequestMethod.POST})
+  /*  @RequestMapping(path = {"/reg/"}, method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public String reg(Model model, @RequestParam("username") String username,
                       @RequestParam("password") String password,
@@ -90,9 +90,9 @@ public class HomeController {
                     cookie.setMaxAge(3600*24*5);
                 }
                 response.addCookie(cookie);
-              /*  eventProducer.fireEvent(new
+              *//*  eventProducer.fireEvent(new
                         EventModel(EventType.LOGIN).setActorId((int) map.get("userId"))
-                        .setExt("username", "牛客").setExt("to", "zjuyxy@qq.com"));*/
+                        .setExt("username", "牛客").setExt("to", "zjuyxy@qq.com"));*//*
                 return MD5Util.getJSONString(0, "成功");
             } else {
                 return MD5Util.getJSONString(1, map);
@@ -102,7 +102,7 @@ public class HomeController {
             logger.error("注册异常" + e.getMessage());
             return MD5Util.getJSONString(1, "注册异常");
         }
-    }
+    }*/
     private List<ViewObject> getNews(int userId, int offset, int limit) {
         List<News> newsList = newsService.getLatestNews(userId, offset, limit);
         int localUserId = hostHolder.getUser() != null ? hostHolder.getUser().getId() : 0;
