@@ -1,4 +1,4 @@
-package net.lsshare.dao;
+package net.lsshare;
 
 import net.lsshare.model.News;
 import org.apache.ibatis.annotations.*;
@@ -58,7 +58,7 @@ public interface NewsDAO {
      * @param limit
      * @return
      */
-    @Select({"select",SELECT_FIELDS,"from",ENTITY_NAME,"where id={#userId} limit #{offset},#{limit} "})
+   // @Select({"select",SELECT_FIELDS,"from",ENTITY_NAME,"where id={#userId} limit #{offset},#{limit} "})
     List<News> selectByUserIdAndOffset(@Param("userId") int userId, @Param("offset") int offset,
                                        @Param("limit") int limit);
 }

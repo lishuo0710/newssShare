@@ -1,4 +1,4 @@
-package net.lsshare.dao;
+package net.lsshare;
 
 import net.lsshare.model.User;
 import org.apache.ibatis.annotations.*;
